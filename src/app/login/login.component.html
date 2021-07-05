@@ -1,0 +1,24 @@
+<div *ngIf="isLoading" class="loader">
+  <img src="/assets/loading.gif">
+</div>
+<div *ngIf="!isLoading" class="wrapper">
+  <div class="form-box">
+    <h3 align="center">Login with your account</h3>
+    <form [formGroup]="user">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" matInput name="username" formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput name="password" formControlName="password">
+      </mat-form-field>
+
+
+
+      <button style="background-color: hotpink; color:white" mat-flat-button (click)="login()">create account</button>
+      <button style="margin-left: 10px;" type="reset" mat-raised-button>reset</button>
+    </form>
+  </div>
+</div>

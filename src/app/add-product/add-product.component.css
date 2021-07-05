@@ -1,0 +1,34 @@
+.wrapper
+{
+  width:100%;
+}
+
+form
+{
+  width:70%;
+  background-color: white;
+  padding: 20px;
+  margin: auto;
+}
+
+mat-form-field
+{
+  width: 100%;
+}
+
+button
+{
+  width: 100%;
+  background-color: hotpink;
+  color:white;
+}
+
+.loader img
+{
+  height:100px;
+  position: absolute;
+  left:40%;
+  top:50vh;
+}
+
+

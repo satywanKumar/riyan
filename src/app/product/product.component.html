@@ -1,0 +1,23 @@
+<div *ngIf="isLoading" class="loader">
+  <img src="/assets/loading.gif">
+</div>
+<div *ngIf="!isLoading"  class="wrapper">
+  <mat-accordion>
+    <mat-expansion-panel style="margin-top: 10px;" *ngFor="let product of productList">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="color: blue;">
+          {{product.title}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Description : {{product.description}}</p>
+      <p>Price : {{product.sp}}</p>
+      <p>Discount : {{product.discountPercent}}</p>
+      <br>
+      <hr>
+      <br>
+      <button mat-raised-button (click)="update(product._id)">Update</button>
+      <button mat-flat-button color="primary" (click)="detail(product._id)">Detail</button>
+      <button mat-flat-button color="accent" (click)=" deleteProduct(product._id)">Delete</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

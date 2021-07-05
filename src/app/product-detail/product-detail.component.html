@@ -1,0 +1,10 @@
+<div *ngIf="isLoading" class="loader">
+  <img src="/assets/loading.gif">
+</div>
+<div  *ngIf="!isLoading"  style="padding: 10px;">
+  <p>Title :- {{product.title}}</p>
+  <p>Description :- {{product.description}}</p>
+  <p>MRP :- {{product.mrp}}</p>
+  <p>SP :- {{product.sp}}</p>
+  <p>Discount : {{product.discountPercent}}</p>
+</div>

@@ -1,0 +1,37 @@
+<div *ngIf="isLoading" class="loader">
+  <img src="/assets/loading.gif">
+</div>
+<div class="wrapper">
+  <div>
+    <h2 style="padding:30px; text-align: center;">add new product</h2>
+    <form [formGroup]= "newProduct">
+      <input style="display: none;" formControlName="_id" >
+      <input style="display: none;" formControlName="imagePath">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input type="text" matInput name="title" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input type="text" matInput name="description" formControlName="description">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>MRP</mat-label>
+        <input type="number" name="mrp" matInput formControlName="mrp">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Selling price</mat-label>
+        <input type="number" name="sp" matInput formControlName="sp">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Discount in Percent</mat-label>
+        <input type="number" name="discountPercent" matInput formControlName="discountPercent">
+      </mat-form-field>
+      <button type="submit" mat-flat-button (click)="save()">{{isId ? 'Update product' : 'Add product'}}</button>
+    </form>
+  </div>
+</div>
