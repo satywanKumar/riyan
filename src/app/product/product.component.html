@@ -4,8 +4,8 @@
 <div *ngIf="!isLoading"  class="wrapper">
   <mat-accordion>
     <mat-expansion-panel style="margin-top: 10px;" *ngFor="let product of productList">
-      <mat-expansion-panel-header>
-        <mat-panel-title style="color: blue;">
+      <mat-expansion-panel-header style="background-color: #eee;">
+        <mat-panel-title>
           {{product.title}}
         </mat-panel-title>
       </mat-expansion-panel-header>

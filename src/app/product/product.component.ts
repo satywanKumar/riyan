@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
+import {MatSnackBar,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-product',
@@ -10,7 +12,11 @@ import { ProductService } from '../product.service';
 export class ProductComponent implements OnInit {
 
   constructor(private prductService:ProductService,
-              private router:Router) { }
+              private router:Router,
+              private _snackBar:MatSnackBar) { }
+              horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+              verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
 
   productList:any;
   isLoading:boolean = false;
@@ -34,6 +40,10 @@ export class ProductComponent implements OnInit {
     this.prductService.deletProduct(id).subscribe(res=>{
       console.log('product deleted');
       this.getProduct();
+      this._snackBar.open('product deleted !!', 'Done', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
     })
   }
 

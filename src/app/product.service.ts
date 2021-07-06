@@ -119,4 +119,16 @@ export class ProductService {
     };
     return this.http.post<any>(this.baseUrl + '/user/login',user, options);
   }
+
+  isLoggedIn()
+  {
+    if(localStorage.getItem('token') == null)
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
 }

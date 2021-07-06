@@ -6,13 +6,15 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProductComponent } from './product/product.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductDetailComponent} from './product-detail/product-detail.component'
+import { AuthGuard } from './auth.guard';
 
 
 
 const routes: Routes = [
+  {path:'',component:LoginComponent},
   {path:'login',component:LoginComponent},
   {path:'sign-up',component:SignupComponent},
-  {path:'dashboard',component:NavBarComponent, children:[
+  {path:'dashboard',component:NavBarComponent,canActivate:[AuthGuard], children:[
     {path:'',component:ProductComponent},
     {path:'product',component:ProductComponent},
     {path:'add-product',component:AddProductComponent},

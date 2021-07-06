@@ -41,6 +41,15 @@ export class SignupComponent implements OnInit {
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
       });
+    },
+    (err)=>
+    {
+      this.isLoading = false;
+      console.log(err.error.msg);
+      this._snackBar.open(err.error.msg, 'Done', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
     })
   }
 
