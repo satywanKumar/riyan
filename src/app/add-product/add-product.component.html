@@ -9,7 +9,8 @@
       <input style="display: none;" formControlName="imagePath">
       <mat-form-field>
         <mat-label>Title</mat-label>
-        <input type="text" matInput name="title" formControlName="title">
+        <input type="text" matInput name="title" formControlName="title" required>
+        <mat-error>this field is required</mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -31,7 +32,7 @@
         <mat-label>Discount in Percent</mat-label>
         <input type="number" name="discountPercent" matInput formControlName="discountPercent">
       </mat-form-field>
-      <button type="submit" mat-flat-button (click)="save()">{{isId ? 'Update product' : 'Add product'}}</button>
+      <button [disabled] = "!newProduct.valid" type="submit" mat-flat-button (click)="save()" color="warn">{{isId ? 'Update product' : 'Add product'}}</button>
     </form>
   </div>
 </div>

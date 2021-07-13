@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
 
   productList:any;
   isLoading:boolean = false;
+  title:String;
 
   ngOnInit(): void {
     this.getProduct();
@@ -32,6 +33,15 @@ export class ProductComponent implements OnInit {
       this.isLoading = false;
       console.log(res.body.Product);
       this.productList = res.body.Product;
+     },
+     (err)=>
+     {
+       this.isLoading = false;
+       console.log(err.error.msg);
+       this._snackBar.open(err.error.msg, 'Done', {
+         horizontalPosition: this.horizontalPosition,
+         verticalPosition: this.verticalPosition,
+       });
      });
   }
 

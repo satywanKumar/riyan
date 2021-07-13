@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductService } from './product.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -23,6 +23,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -34,7 +36,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AddProductComponent,
     LoginComponent,
     SignupComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatSnackBarModule
   ],
-  providers: [ProductService],
+  providers: [ProductService,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

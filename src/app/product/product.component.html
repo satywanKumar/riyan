@@ -2,8 +2,9 @@
   <img src="/assets/loading.gif">
 </div>
 <div *ngIf="!isLoading"  class="wrapper">
+  <input placeholder="search product" class="search" type="text" [(ngModel)]="title">
   <mat-accordion>
-    <mat-expansion-panel style="margin-top: 10px;" *ngFor="let product of productList">
+    <mat-expansion-panel style="margin-top: 10px;" *ngFor="let product of productList | filter:title;">
       <mat-expansion-panel-header style="background-color: #eee;">
         <mat-panel-title>
           {{product.title}}

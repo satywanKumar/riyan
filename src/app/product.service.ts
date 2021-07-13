@@ -131,4 +131,9 @@ export class ProductService {
       return true;
     }
   }
+
+  getToken()
+  {
+    return localStorage.getItem('token');
+  }
 }

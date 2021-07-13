@@ -33,3 +33,9 @@ button
   left:40%;
   top:50vh;
 }
+
+.search
+{
+  width: 98%;
+  padding: 5px;;
+}
