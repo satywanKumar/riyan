@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(product:any[],title:String): unknown {
-    console.log(product,title);
+    // console.log(product,title);
     if(title == undefined)
     {
       return product;
